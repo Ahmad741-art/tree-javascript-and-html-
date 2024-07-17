@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tree Drawing</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="treeCanvas" width="400" height="400"></canvas>
+    <script>
+        // Get the canvas element and its context
+        var canvas = document.getElementById('treeCanvas');
+        var ctx = canvas.getContext('2d');
+
+        // Function to draw a rectangle (tree trunk)
+        function drawRectangle(x, y, width, height, color) {
+            ctx.fillStyle = color;
+            ctx.fillRect(x, y, width, height);
+        }
+
+        // Function to draw a triangle (tree foliage)
+        function drawTriangle(x, y, width, height, color) {
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x + width / 2, y - height);
+            ctx.lineTo(x - width / 2, y - height);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        // Draw the tree trunk
+        drawRectangle(185, 300, 30, 100, 'saddlebrown');
+
+        // Draw the tree foliage
+        drawTriangle(200, 300, 100, 100, 'green');
+        drawTriangle(200, 250, 80, 80, 'green');
+        drawTriangle(200, 210, 60, 60, 'green');
+    </script>
+</body>
+</html>
